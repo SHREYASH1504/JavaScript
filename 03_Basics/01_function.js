@@ -52,4 +52,14 @@ function handlearray(anyarary)
     return anyarary[0];
 }
 
-console.log(handlearray(mynewarray));
+// console.log(handlearray(mynewarray));
+
+addOne(1);// works
+function addOne(num) {
+    return num + 1;
+}
+
+addTwo(1); // does not work
+const addTwo = function(num) {
+    return num + 2;
+}
