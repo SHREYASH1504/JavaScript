@@ -106,5 +106,18 @@ const users = [
 // console.log(Object.values(TinderUser));
 // console.log(Object.entries(TinderUser));
 
-console.log(TinderUser.hasOwnProperty("age")); // true
-console.log(TinderUser.hasOwnProperty("gender")); // false
+// console.log(TinderUser.hasOwnProperty("age")); // true
+// console.log(TinderUser.hasOwnProperty("gender")); // false
+
+
+//Object Destructure
+const course = {
+    courseName: "JavaScript Basics",
+    price: "999",
+    courseInstructor: "Code and Chai"
+}
+
+const {courseInstructor : instructor} = course;
+
+// console.log(courseInstructor);
+console.log(instructor);
