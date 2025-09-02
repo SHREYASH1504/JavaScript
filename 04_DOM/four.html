@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - 4</title>
+</head>
+<body style="background-color: black; color: white;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    // method 1 : innerHTML (traversing whole tree every time)
+    function addLanguage(langName) {
+        const li = document.createElement("li");
+        li.innerHTML = `${langName}`;
+        document.querySelector(".language").appendChild(li);
+    }
+    addLanguage("python")
+    addLanguage("typescript")
+
+    // method 2 : createTextNode (Optimized)
+    function addOptiLanguage(langName)
+    {
+        const li = document.createElement("li");
+        li.appendChild(document.createTextNode(langName));
+        document.querySelector(".language").appendChild(li);
+    }
+    addOptiLanguage("goLang");
+    addOptiLanguage("java");
+
+    // Edit
+    const secondLang = document.querySelector("li:nth-child(2)");
+    // secondLang.innerHTML = "Wnglish"
+    const newli = document.createElement("li");
+    newli.textContent = "English"; // can be done using createTextNode also
+    secondLang.replaceWith(newli)
+
+    const firstLang = document.querySelector("li-first-child");
+    firstLang.outerHTML = "<li>PYTHON</li>";
+
+    // remove
+    const lastlang = document.querySelector("li:last-child");
+    lastlang.remove();
+
+</script>
+</html>
+
+
