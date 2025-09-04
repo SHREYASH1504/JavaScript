@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+</head>
+<body style="background-color: black; color: white;">
+    1 opened has been called but not opened
+    2 headers recieved send has been called , and headers and status are available
+    3 loading downloading; responceText holdds partial data 
+    4 DONE The operation is complete
+</body>
+<script>
+    const requestUrl = "https://api.github.com/users/SHREYASH1504";
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', requestUrl);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) { 
+                const response = JSON.parse(xhr.responseText); //  
+                console.log(response);
+            } else {
+                console.error('Error fetching data');
+            }
+        }
+    }
+
+</script>
+</html>
