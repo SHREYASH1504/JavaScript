@@ -31,7 +31,7 @@ promiseOne.then(function() {
     console.log("promise consumed");
 })
 
-// another way of creating and consuming promise
+// another way of creating and consuming promisef
 new Promise(function(resolve, reject) {
     setTimeout(function() {
         console.log("Async Promise task 2");
@@ -41,3 +41,51 @@ new Promise(function(resolve, reject) {
     console.log("Async 2 resolved")
 })
 
+const promiseTwo = new Promise(function(resolve, reject) {
+    setTimeout(function() {
+        resolve({username: "Shreyash", email: "example.com"})
+    }, 1000)
+})
+promiseTwo.then(function(user) {
+    console.log(user);
+})
+
+const promiseThree = new Promise(function(resolve, reject) {
+    setTimeout(function() {
+        let error = true;
+        if(!error) {
+            resolve({username: "Shreyash", password: "12345"})
+        } else {
+            reject("Error: Something went wrong")
+        }
+    }, 1000)
+})
+promiseThree.then((user) => {
+    console.log(user);
+    return username
+}).then((username) => {
+    console.log(username)
+}).catch(function(error) {
+    console.log(error)
+}).finally(() => console.log("The promise is either resolved or rejected"))
+
+const promiseFour = new Promise(function(resolve, reject) {
+    setTimeout(function() {
+        let error = true
+        if(!error) {
+            resolve({username: "Javascript", email: "dasnbvd@gmail.com"})
+        }
+        else {
+            console.log("ERROR: JS went wrong")
+        }
+    }, 1000)
+})
+async function consumePromiseFour() {
+    try {
+        const response = await promiseFour;
+        console.log(response);
+    } catch(error) {
+        console.log(error)
+    }
+}
+consumePromiseFour()
